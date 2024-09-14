@@ -79,7 +79,4 @@ require("bufferline").setup {
     always_show_bufferline = false, -- Only show tabs when more than one buffer is open
   }
 }
-local npairs = require('nvim-autopairs')
-npairs.setup({
-    -- Add any specific configuration options here if needed
-})
+

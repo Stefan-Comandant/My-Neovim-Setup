@@ -5,4 +5,3 @@ require("keymaps")
 require("lsp")
 require("mycmp")
 require("plugins")
-
