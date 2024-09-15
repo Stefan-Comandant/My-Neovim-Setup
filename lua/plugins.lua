@@ -6,6 +6,7 @@ return require('packer').startup(function(use)
     use 'akinsho/bufferline.nvim'
     use 'haishanh/night-owl.vim'
     use 'windwp/nvim-autopairs'
+    use 'ray-x/lsp_signature.nvim'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
