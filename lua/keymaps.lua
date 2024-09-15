@@ -9,6 +9,7 @@ map('i', '<C-k>', '<Up>', opts);
 map('i', '<C-l>', '<Right>', opts);
 map('n', '<C-a>', 'ggVG', opts);
 map('i', '<C-n>', '<Esc>o<CR>', opts)
+map('n', '9', '$', opts)
 
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -23,3 +24,5 @@ map('n', '<leader>tc', ':tabclose<CR>', opts) -- Close tab
 map('n', '<leader>to', ':tabonly<CR>', opts) -- Close all other tabs
 map('n', '<leader>tp', ':tabprev<CR>', opts) -- Go to previous tab
 map('n', '<leader>tn', ':tabnext<CR>', opts) -- Go to next tab
+map('n', '<leader>/', ':nohlsearch<CR>', opts) -- Clear search highlights
+

@@ -7,6 +7,8 @@ return require('packer').startup(function(use)
     use 'haishanh/night-owl.vim'
     use 'windwp/nvim-autopairs'
     use 'ray-x/lsp_signature.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use 'lewis6991/gitsigns.nvim'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
