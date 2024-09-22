@@ -7,9 +7,6 @@ map('i', '<C-h>', '<Left>', opts);
 map('i', '<C-j>', '<Down>', opts);
 map('i', '<C-k>', '<Up>', opts);
 map('i', '<C-l>', '<Right>', opts);
-map('n', '<C-a>', 'ggVG', opts);
-map('i', '<C-n>', '<Esc>o<CR>', opts)
-map('n', '9', '$', opts)
 
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)

@@ -9,6 +9,8 @@ return require('packer').startup(function(use)
     use 'ray-x/lsp_signature.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'lewis6991/gitsigns.nvim'
+    use 'mg979/vim-visual-multi'
+    use 'tpope/vim-commentary'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
