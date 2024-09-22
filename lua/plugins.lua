@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-commentary'
+    use 'kylechui/nvim-surround'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
