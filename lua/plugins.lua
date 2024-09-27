@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-commentary'
     use 'kylechui/nvim-surround'
+    use 'nvim-telescope/telescope.nvim'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework

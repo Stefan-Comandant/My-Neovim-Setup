@@ -59,10 +59,10 @@ lspconfig.gopls.setup({
 })
 
 require "lsp_signature".setup({
-  bind = true, -- This is mandatory, otherwise border config won't work
-  handler_opts = {
-    border = "rounded" -- Options include 'single', 'double', 'rounded', 'solid', 'shadow', 'none'
-  },
-  floating_window = true, -- Show signature help in a floating window
-  hint_enable = true, -- Virtual hint on the current line
+    bind = true, -- This is mandatory, otherwise border config won't work
+    handler_opts = {
+        border = "rounded" -- Options include 'single', 'double', 'rounded', 'solid', 'shadow', 'none'
+    },
+    floating_window = true, -- Show signature help in a floating window
+    hint_enable = true, -- Virtual hint on the current line
 })
