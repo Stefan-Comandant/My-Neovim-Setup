@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1725453128/share/lua/5.1/?/init.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1725453128/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1725453128/lib/lua/5.1/?.so"
+local package_path_str = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1727870382/share/lua/5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1727870382/share/lua/5.1/?/init.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1727870382/lib/luarocks/rocks-5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1727870382/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1727870382/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["calculator.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/calculator.nvim",
+    url = "https://github.com/vzze/calculator.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -114,10 +119,10 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
   },
-  ["night-owl.vim"] = {
+  nvim = {
     loaded = true,
-    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/night-owl.vim",
-    url = "https://github.com/haishanh/night-owl.vim"
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,

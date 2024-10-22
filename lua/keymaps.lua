@@ -30,3 +30,9 @@ map('n', '<leader>/', ':nohlsearch<CR>', opts) -- Clear search highlights
 map('n', '<leader>f', ':Telescope find_files<CR>', opts)
 map('n', "+", "<C-a>", opts);
 map('n', "-", "<C-x>", opts);
+
+vim.api.nvim_create_user_command("Calculate", "lua require(\"calculator\").calculate()",
+    { ["range"] = 1, ["nargs"] = 0 })
+
+map('v', '<leader>E', ':Calculate<CR>', opts);
+map('n', '<leader>E', ':Calculate<CR>', opts);

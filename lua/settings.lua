@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
+vim.wo.relativenumber = true
 
 
 vim.diagnostic.config({
@@ -19,7 +20,7 @@ vim.diagnostic.config({
     },
 })
 
-vim.cmd[[colorscheme night-owl]]
+vim.cmd[[colorscheme catppuccin]]
 
 vim.wo.number = true
 

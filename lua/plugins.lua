@@ -4,7 +4,8 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'nvim-tree/nvim-tree.lua'
     use 'akinsho/bufferline.nvim'
-    use 'haishanh/night-owl.vim'
+    -- use 'haishanh/night-owl.vim'
+    use 'catppuccin/nvim'
     use 'windwp/nvim-autopairs'
     use 'ray-x/lsp_signature.nvim'
     use 'nvim-lua/plenary.nvim'
@@ -13,6 +14,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-commentary'
     use 'kylechui/nvim-surround'
     use 'nvim-telescope/telescope.nvim'
+    use 'vzze/calculator.nvim'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
