@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     use 'kylechui/nvim-surround'
     use 'nvim-telescope/telescope.nvim'
     use 'vzze/calculator.nvim'
+    use 'Djancyp/better-comments.nvim'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework

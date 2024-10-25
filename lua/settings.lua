@@ -23,7 +23,7 @@ vim.diagnostic.config({
 vim.cmd[[colorscheme catppuccin]]
 
 vim.wo.number = true
-
+require('better-comment').Setup()
 require('nvim-tree').setup {
     view = {
     	side = 'left',
