@@ -23,10 +23,10 @@ vim.diagnostic.config({
 vim.cmd[[colorscheme catppuccin]]
 
 vim.wo.number = true
-require('better-comment').Setup()
+
 require('nvim-tree').setup {
     view = {
-    	side = 'left',
+    side = 'left',
 	width = 30,
 	-- auto_resize = true,
     },
@@ -139,3 +139,80 @@ require('gitsigns').setup {
         col = 1
     },
 }
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    always_show_tabline = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 100,
+      tabline = 100,
+      winbar = 100,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+
+
+require('better-comment').Setup({
+tags = {
+        {
+            name = "TODO",
+            fg = "white",
+            bg = "#0a7aca",
+            bold = true,
+            virtual_text = "",
+        },
+        {
+            name = "FIX",
+            fg = "white",
+            bg = "#f44747",
+            bold = true,
+            virtual_text = "This is virtual Text from FIX",
+        },
+        {
+            name = "WARNING",
+            fg = "#FFA500",
+            bg = "",
+            bold = false,
+            virtual_text = "",
+        },
+        {
+            name = "!",
+            fg = "#f44747",
+            bg = "",
+            bold = true,
+            virtual_text = "",
+        }
+
+    }
+})

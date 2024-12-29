@@ -4,7 +4,6 @@ return require('packer').startup(function(use)
     use 'neovim/nvim-lspconfig'
     use 'nvim-tree/nvim-tree.lua'
     use 'akinsho/bufferline.nvim'
-    -- use 'haishanh/night-owl.vim'
     use 'catppuccin/nvim'
     use 'windwp/nvim-autopairs'
     use 'ray-x/lsp_signature.nvim'
@@ -12,10 +11,21 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-commentary'
-    use 'kylechui/nvim-surround'
+    -- use 'kylechui/nvim-surround'
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
+
     use 'nvim-telescope/telescope.nvim'
     use 'vzze/calculator.nvim'
     use 'Djancyp/better-comments.nvim'
+    use 'nvim-lualine/lualine.nvim'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
