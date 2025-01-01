@@ -35,6 +35,14 @@ return require('packer').startup(function(use)
        end
     }
 
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+
     use 'nvim-telescope/telescope.nvim'
     use 'vzze/calculator.nvim'
     use 'Djancyp/better-comments.nvim'
