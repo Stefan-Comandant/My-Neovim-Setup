@@ -1,17 +1,22 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    use 'williamboman/mason.nvim'
     use 'nvim-tree/nvim-web-devicons'
     use 'neovim/nvim-lspconfig'
     use 'nvim-tree/nvim-tree.lua'
     use 'akinsho/bufferline.nvim'
-    use 'catppuccin/nvim'
     use 'windwp/nvim-autopairs'
     use 'ray-x/lsp_signature.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'mg979/vim-visual-multi'
-    use 'tpope/vim-commentary'
-    -- use 'kylechui/nvim-surround'
+    use 'tpope/vim-commentary' -- use 'kylechui/nvim-surround'
+    -- use 'nvim-treesitter/nvim-treesitter'
+    use {'mistricky/codesnap.nvim', run = 'make'} -- codesnap for taking pictures of code
+    use "NormalNvim/NormalNvim"
+    use 'bergercookie/asm-lsp'
+
+
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -25,9 +30,7 @@ return require('packer').startup(function(use)
     use { "anuvyklack/windows.nvim",
        requires = {
           "anuvyklack/middleclass",
-          "anuvyklack/animation.nvim"
-       },
-       config = function()
+          "anuvyklack/animation.nvim" }, config = function()
           vim.o.winwidth = 10
           vim.o.winminwidth = 10
           vim.o.equalalways = false
@@ -43,6 +46,7 @@ return require('packer').startup(function(use)
         },
     })
 
+
     use 'nvim-telescope/telescope.nvim'
     use 'vzze/calculator.nvim'
     use 'Djancyp/better-comments.nvim'
@@ -56,5 +60,13 @@ return require('packer').startup(function(use)
         'hrsh7th/cmp-cmdline', -- Command line completions
         'L3MON4D3/LuaSnip' -- Snippet engine
     }
-end)
 
+    -- **********************
+    -- Themes
+    -- **********************
+    use 'zaldih/themery.nvim' -- Theme switcher
+    use 'shaunsingh/nord.nvim'
+    use 'catppuccin/nvim'
+    use 'sainnhe/gruvbox-material'
+    use 'Tsuzat/NeoSolarized.nvim'
+end)

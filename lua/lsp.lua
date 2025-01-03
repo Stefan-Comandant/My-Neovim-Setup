@@ -1,6 +1,6 @@
-
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 
 local function on_attach(client,bufnr)
     -- Define key mappings for LSP functions
@@ -8,10 +8,12 @@ local function on_attach(client,bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, 'n', keys, cmd, { noremap = true, silent = true })
     end
 
-    buf_map('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    buf_map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    buf_map('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-    buf_map('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    -- buf_map('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    -- buf_map('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+    -- buf_map('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+    -- buf_map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    -- buf_map('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+    -- buf_map('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
     require "lsp_signature".on_attach({
         bind = true,

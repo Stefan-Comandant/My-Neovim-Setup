@@ -79,10 +79,25 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["NeoSolarized.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/NeoSolarized.nvim",
+    url = "https://github.com/Tsuzat/NeoSolarized.nvim"
+  },
+  NormalNvim = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/NormalNvim",
+    url = "https://github.com/NormalNvim/NormalNvim"
+  },
   ["animation.nvim"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/animation.nvim",
     url = "https://github.com/anuvyklack/animation.nvim"
+  },
+  ["asm-lsp"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/asm-lsp",
+    url = "https://github.com/bergercookie/asm-lsp"
   },
   ["better-comments.nvim"] = {
     loaded = true,
@@ -119,10 +134,20 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["codesnap.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/codesnap.nvim",
+    url = "https://github.com/mistricky/codesnap.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
   },
   ["lazygit.nvim"] = {
     loaded = true,
@@ -139,10 +164,20 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   middleclass = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/middleclass",
     url = "https://github.com/anuvyklack/middleclass"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   nvim = {
     loaded = true,
@@ -194,6 +229,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["themery.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/themery.nvim",
+    url = "https://github.com/zaldih/themery.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,

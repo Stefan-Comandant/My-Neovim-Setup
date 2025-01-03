@@ -20,7 +20,32 @@ vim.diagnostic.config({
     },
 })
 
-vim.cmd[[colorscheme catppuccin]]
+vim.cmd[[colorscheme gruvbox-material]]
+
+
+require("mason").setup()
+
+
+require("NeoSolarized").setup({
+  style = "dark", -- "dark" or "light"
+  transparent = true, -- true/false; Enable this to disable setting the background color
+  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+  enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
+  styles = {
+    -- Style to be applied to different syntax groups
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = { bold = true },
+    variables = {},
+    string = { italic = true },
+    underline = true, -- true/false; for global underline
+    undercurl = true, -- true/false; for global undercurl
+  },
+  -- Add specific hightlight groups
+  on_highlights = function(highlights, colors) 
+    -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
+  end,
+})
 
 vim.wo.number = true
 
@@ -34,7 +59,7 @@ require('nvim-tree').setup {
 	open_file = {
 	    quit_on_open = false,
 	    window_picker = {
-		enable = false,
+		enable = true,
 	    },
 	}
     },
@@ -48,7 +73,7 @@ require('nvim-tree').setup {
                 folder_arrow = true
            }
         }
-    }
+    },
 }
 
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -77,7 +102,12 @@ require("bufferline").setup {
     show_buffer_close_icons = false,
     show_close_icon = false,
     enforce_regular_tabs = true,
-    always_show_bufferline = false, -- Only show tabs when more than one buffer is open
+    always_show_bufferline = true, -- Only show tabs when more than one buffer is open
+    hover = {
+        enabled = true,
+        delay = 200,
+        reveal = {'close'}
+    }
   }
 }
 
@@ -215,4 +245,96 @@ tags = {
         }
 
     }
+})
+
+require("themery").setup({
+    themes = {
+        {
+            name = "Gruvbox Dark",
+            colorscheme = "gruvbox-material",
+            before = [[
+                vim.opt.background = "dark"
+            ]]
+        },
+        {
+            name = "Gruvbox Light",
+            colorscheme = "gruvbox-material",
+            before = [[
+                vim.opt.background = "light"
+            ]]
+        },
+        {
+            name = "Catppuccin",
+            colorscheme = "catppuccin",
+            after = [[
+                vim.opt.background = "dark"
+            ]]
+        },
+        {
+            name = "Nord", colorscheme = "nord",
+        },
+        {
+            name = "Solarized Dark",
+            colorscheme = "NeoSolarized",
+            before = [[
+                require("NeoSolarized").setup {
+                    style = "dark", -- "dark" or "light"
+                    transparent = true, -- true/false; Enable this to disable setting the background color
+                    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+                    enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
+                    styles = {
+                        -- Style to be applied to different syntax groups
+                        comments = { italic = true },
+                        keywords = { italic = true },
+                        functions = { bold = true },
+                        variables = {},
+                        string = { italic = true },
+                        underline = true, -- true/false; for global underline
+                        undercurl = true, -- true/false; for global undercurl
+                    },
+                    -- Add specific hightlight groups
+                    on_highlights = function(highlights, colors) 
+                        -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
+                    end, 
+                }
+            ]],
+            after = [[
+                vim.opt.background = "dark"
+                -- highlight Normal guibg=none
+                -- highlight NonText guibg=none
+                -- highlight Normal ctermbg=none
+                -- highlight NonText ctermbg=none
+            ]]
+        },
+        {
+            name = "Solarized Light",
+            colorscheme = "NeoSolarized",
+            before = [[
+                require("NeoSolarized").setup {
+                    style = "light", -- "dark" or "light"
+                    transparent = false, -- true/false; Enable this to disable setting the background color
+                    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+                    enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
+                    styles = {
+                        -- Style to be applied to different syntax groups
+                        comments = { italic = true },
+                        keywords = { italic = true },
+                        functions = { bold = true },
+                        variables = {},
+                        string = { italic = true },
+                        underline = true, -- true/false; for global underline
+                        undercurl = true, -- true/false; for global undercurl
+                    },
+                    -- Add specific hightlight groups
+                    on_highlights = function(highlights, colors) 
+                        -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
+                    end, 
+                }
+            ]],
+            after = [[
+                vim.opt.background="light"
+            ]]
+        },
+    }, -- Your list of installed colorschemes.
+    livePreview = true, -- Apply theme while picking. Default to true.
 })
