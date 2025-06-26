@@ -11,10 +11,10 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-commentary' -- use 'kylechui/nvim-surround'
-    -- use 'nvim-treesitter/nvim-treesitter'
     use {'mistricky/codesnap.nvim', run = 'make'} -- codesnap for taking pictures of code
-    use "NormalNvim/NormalNvim"
+    -- use "NormalNvim/NormalNvim"
     use 'bergercookie/asm-lsp'
+    use 'nvim-treesitter/nvim-treesitter'
 
 
     use({
@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
     use 'vzze/calculator.nvim'
     use 'Djancyp/better-comments.nvim'
     use 'nvim-lualine/lualine.nvim'
+    use 'olrtg/emmet-language-server'
 
     use {
         'hrsh7th/nvim-cmp', -- Completion framework
@@ -69,4 +70,6 @@ return require('packer').startup(function(use)
     use 'catppuccin/nvim'
     use 'sainnhe/gruvbox-material'
     use 'Tsuzat/NeoSolarized.nvim'
+    use 'folke/tokyonight.nvim'
+    use "Stefan-Comandant/stefan-plugin"
 end)

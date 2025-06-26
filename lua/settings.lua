@@ -28,7 +28,7 @@ require("mason").setup()
 
 require("NeoSolarized").setup({
   style = "dark", -- "dark" or "light"
-  transparent = true, -- true/false; Enable this to disable setting the background color
+  transparent = false, -- true/false; Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
   styles = {
@@ -51,7 +51,7 @@ vim.wo.number = true
 
 require('nvim-tree').setup {
     view = {
-    side = 'left',
+    side = 'right',
 	width = 30,
 	-- auto_resize = true,
     },
@@ -257,13 +257,6 @@ require("themery").setup({
             ]]
         },
         {
-            name = "Gruvbox Light",
-            colorscheme = "gruvbox-material",
-            before = [[
-                vim.opt.background = "light"
-            ]]
-        },
-        {
             name = "Catppuccin",
             colorscheme = "catppuccin",
             after = [[
@@ -279,7 +272,7 @@ require("themery").setup({
             before = [[
                 require("NeoSolarized").setup {
                     style = "dark", -- "dark" or "light"
-                    transparent = true, -- true/false; Enable this to disable setting the background color
+                    transparent = false, -- true/false; Enable this to disable setting the background color
                     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
                     enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
                     styles = {
@@ -300,10 +293,13 @@ require("themery").setup({
             ]],
             after = [[
                 vim.opt.background = "dark"
-                -- highlight Normal guibg=none
-                -- highlight NonText guibg=none
-                -- highlight Normal ctermbg=none
-                -- highlight NonText ctermbg=none
+            ]]
+        },
+        {
+            name = "Gruvbox Light",
+            colorscheme = "gruvbox-material",
+            before = [[
+                vim.opt.background = "light"
             ]]
         },
         {

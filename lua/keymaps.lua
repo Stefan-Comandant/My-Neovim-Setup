@@ -7,9 +7,11 @@ map('i', '<C-h>', '<Left>', opts);
 map('i', '<C-j>', '<Down>', opts);
 map('i', '<C-k>', '<Up>', opts);
 map('i', '<C-l>', '<Right>', opts);
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts) map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+-- vim.keymap.set('n', '<leader>gi', function ()
+--     require("telescope.builtin").lsp_implementations()
+-- end, opts)
 map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)

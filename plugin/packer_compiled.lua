@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1731601260/share/lua/5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1731601260/share/lua/5.1/?/init.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1731601260/lib/luarocks/rocks-5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1731601260/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1731601260/lib/lua/5.1/?.so"
+local package_path_str = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1748459687/share/lua/5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1748459687/share/lua/5.1/?/init.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1748459687/lib/luarocks/rocks-5.1/?.lua;/home/stefan/.cache/nvim/packer_hererocks/2.1.1748459687/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/stefan/.cache/nvim/packer_hererocks/2.1.1748459687/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -83,11 +83,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/NeoSolarized.nvim",
     url = "https://github.com/Tsuzat/NeoSolarized.nvim"
-  },
-  NormalNvim = {
-    loaded = true,
-    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/NormalNvim",
-    url = "https://github.com/NormalNvim/NormalNvim"
   },
   ["animation.nvim"] = {
     loaded = true,
@@ -138,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/codesnap.nvim",
     url = "https://github.com/mistricky/codesnap.nvim"
+  },
+  ["emmet-language-server"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/emmet-language-server",
+    url = "https://github.com/olrtg/emmet-language-server"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -210,6 +210,11 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -234,6 +239,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/themery.nvim",
     url = "https://github.com/zaldih/themery.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,
