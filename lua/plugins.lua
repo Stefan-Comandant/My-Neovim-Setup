@@ -62,6 +62,8 @@ return require('packer').startup(function(use)
         'L3MON4D3/LuaSnip' -- Snippet engine
     }
 
+
+
     -- **********************
     -- Themes
     -- **********************
@@ -71,5 +73,8 @@ return require('packer').startup(function(use)
     use 'sainnhe/gruvbox-material'
     use 'Tsuzat/NeoSolarized.nvim'
     use 'folke/tokyonight.nvim'
+
+
+
     use "Stefan-Comandant/stefan-plugin"
 end)

@@ -5,13 +5,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 vim.cmd [[packadd packer.nvim]]
 
--- local modpath = (...)
--- print(modpath)
--- if modpath == "nil" then
---     print("scheisse is nil")
--- end
--- print("mod_path: " .. modpath)
-
 require("plugins")
 require("settings")
 require("keymaps")
