@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
             require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults
             })
-        end
+        end,
     })
 
     use { "anuvyklack/windows.nvim",
@@ -59,9 +59,9 @@ return require('packer').startup(function(use)
         'hrsh7th/cmp-buffer', -- Buffer completions
         'hrsh7th/cmp-path', -- Path completions
         'hrsh7th/cmp-cmdline', -- Command line completions
-        'L3MON4D3/LuaSnip' -- Snippet engine
+        'L3MON4D3/LuaSnip', -- Snippet engine
+        'saadparwaiz1/cmp_luasnip',
     }
-
 
 
     -- **********************

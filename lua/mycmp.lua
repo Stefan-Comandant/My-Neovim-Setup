@@ -1,7 +1,7 @@
 -- lua/cmp.lua
 local cmp = require 'cmp'
 local npairs = require('nvim-autopairs')
-npairs.setup({})
+npairs.setup()
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -41,4 +41,5 @@ cmp.setup({
     })
 })
 
--- cmp.event:on('confirm_done', npairs.on_confirm_done())
+require('nvim-autopairs').enable()
+require("nvim-surround").setup()
