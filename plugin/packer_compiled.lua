@@ -260,6 +260,11 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-obsession"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/vim-obsession",
+    url = "https://github.com/tpope/vim-obsession"
+  },
   ["vim-visual-multi"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/vim-visual-multi",

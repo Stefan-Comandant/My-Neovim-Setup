@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-commentary' -- use 'kylechui/nvim-surround'
+    use 'tpope/vim-obsession' -- allow automatic session saving
     use {'mistricky/codesnap.nvim', run = 'make'} -- codesnap for taking pictures of code
     -- use "NormalNvim/NormalNvim"
     use 'bergercookie/asm-lsp'

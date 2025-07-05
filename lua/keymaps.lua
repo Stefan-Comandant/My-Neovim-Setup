@@ -42,5 +42,5 @@ vim.api.nvim_create_user_command("Calculate", "<cmd>lua require(\"calculator\").
 
 vim.api.nvim_create_user_command("T", "Telescope", { ["range"] = 3, ["nargs"] = 1 })
 
-map('v', '<leader>E', ':Calculate<CR>', opts);
-map('n', '<leader>E', ':Calculate<CR>', opts);
+map('v', '<leader>E', '<cmd>Calculate<CR>', opts);
+map('n', '<leader>E', '<cmd>Calculate<CR>', opts);
