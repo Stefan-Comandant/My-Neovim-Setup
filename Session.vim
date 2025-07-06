@@ -13,16 +13,28 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 init.lua
-badd +1 lua/keymaps.lua
-badd +34 lua/plugins.lua
-badd +1 NvimTree_1
+badd +1 .gitignore
+badd +76 lua/plugins.lua
+badd +8 init.lua
+badd +1 index.html
 argglobal
 %argdel
 $argadd NvimTree_1
-edit lua/plugins.lua
+edit init.lua
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
-balt lua/keymaps.lua
+balt index.html
 setlocal foldmethod=manual
 setlocal foldexpr=v:lua.vim.treesitter.foldexpr()
 setlocal foldmarker={{{,}}}
@@ -33,11 +45,11 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 34 - ((23 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 34
+keepjumps 1
 normal! 0
 lcd ~/.config/nvim
 tabnext 1
@@ -47,6 +59,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=10
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

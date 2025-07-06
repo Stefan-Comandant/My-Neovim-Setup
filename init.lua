@@ -5,6 +5,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 vim.cmd [[packadd packer.nvim]]
 
+require("hex").setup()
+
 require("plugins")
 require("settings")
 require("keymaps")

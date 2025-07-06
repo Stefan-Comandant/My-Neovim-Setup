@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     -- use "NormalNvim/NormalNvim"
     use 'bergercookie/asm-lsp'
     use 'nvim-treesitter/nvim-treesitter'
+    use 'RaafatTurki/hex.nvim'
 
 
     use({
