@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
     use 'bergercookie/asm-lsp'
     use 'nvim-treesitter/nvim-treesitter'
     use 'RaafatTurki/hex.nvim'
+    use 'alex-popov-tech/store.nvim'
+    use 'rktjmp/fwatch.nvim'
 
 
     use({
@@ -75,6 +77,7 @@ return require('packer').startup(function(use)
     use 'sainnhe/gruvbox-material'
     use 'Tsuzat/NeoSolarized.nvim'
     use 'folke/tokyonight.nvim'
+    use 'mistweaverco/retro-theme.nvim'
 
 
 

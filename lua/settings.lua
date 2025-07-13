@@ -257,6 +257,15 @@ require("themery").setup({
             ]]
         },
         {
+            name = "Retro Theme",
+            colorscheme = "retro-theme",
+            before = [[
+                require("retro-theme").setup {
+                    italic_comments = true,
+                }
+            ]],
+        },
+        {
             name = "Catppuccin",
             colorscheme = "catppuccin",
             after = [[

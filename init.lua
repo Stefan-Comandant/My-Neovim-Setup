@@ -6,6 +6,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 require("hex").setup()
+require("store").setup()
 
 require("plugins")
 require("settings")

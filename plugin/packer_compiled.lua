@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/emmet-language-server",
     url = "https://github.com/olrtg/emmet-language-server"
   },
+  ["fwatch.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/fwatch.nvim",
+    url = "https://github.com/rktjmp/fwatch.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -240,10 +245,20 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["retro-theme.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/retro-theme.nvim",
+    url = "https://github.com/mistweaverco/retro-theme.nvim"
+  },
   ["stefan-plugin"] = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/stefan-plugin",
     url = "https://github.com/Stefan-Comandant/stefan-plugin"
+  },
+  ["store.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/store.nvim",
+    url = "https://github.com/alex-popov-tech/store.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
