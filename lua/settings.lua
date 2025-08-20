@@ -1,5 +1,5 @@
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.guicursor = "n:block,ci:block,i:block,r:block,o:block"
+vim.opt.guicursor = "n:block,ci:block,i:ver1,r:block,o:block"
 vim.opt.showtabline = 1
 
 vim.opt.expandtab = true
@@ -7,6 +7,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.wo.relativenumber = true
+vim.o.smartindent = true
+vim.opt.cursorline = true
 
 
 vim.diagnostic.config({
@@ -16,52 +18,61 @@ vim.diagnostic.config({
     underline = true,
     severity_sort = true,
     float = {
-	    source = "always",
+        source = "always",
     },
 })
 
-vim.cmd[[colorscheme gruvbox-material]]
+-- vim.cmd[[colorscheme gruvbox-material]]
+
+-- require("colorizer").setup()
+-- vim.opt.termguicolors = nil
 
 
 require("mason").setup()
 
 
 require("NeoSolarized").setup({
-  style = "dark", -- "dark" or "light"
-  transparent = false, -- true/false; Enable this to disable setting the background color
-  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-  enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
-  styles = {
-    -- Style to be applied to different syntax groups
-    comments = { italic = true },
-    keywords = { italic = true },
-    functions = { bold = true },
-    variables = {},
-    string = { italic = true },
-    underline = true, -- true/false; for global underline
-    undercurl = true, -- true/false; for global undercurl
-  },
-  -- Add specific hightlight groups
-  on_highlights = function(highlights, colors) 
-    -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
-  end,
+    style = "dark", -- "dark" or "light"
+    transparent = false, -- true/false; Enable this to disable setting the background color
+    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+    enable_italics = true, -- Italics for different hightlight groups (eg. Statement, Condition, Comment, Include, etc.)
+    styles = {
+        -- Style to be applied to different syntax groups
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = { bold = true },
+        variables = {},
+        string = { italic = true },
+        underline = true, -- true/false; for global underline
+        undercurl = true, -- true/false; for global undercurl
+    },
+    -- Add specific hightlight groups
+    on_highlights = function(highlights, colors) 
+        -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
+    end,
 })
+
+require("onedark").setup {
+    style = "darker",
+    transparent = true,
+}
 
 vim.wo.number = true
 
 require('nvim-tree').setup {
     view = {
-    side = 'right',
-	width = 30,
-	-- auto_resize = true,
+        side = 'right',
+        width = 30,
+        preserve_window_proportions = true,
+        -- auto_resize = true,
     },
     actions = {
-	open_file = {
-	    quit_on_open = false,
-	    window_picker = {
-		enable = true,
-	    },
-	}
+        open_file = {
+            quit_on_open = false,
+            window_picker = {
+                enable = true,
+            },
+        }
     },
     -- Enable icons (if 'nvim-web-devicons' is installed)
     renderer = {
@@ -71,44 +82,31 @@ require('nvim-tree').setup {
                 folder = true,
                 file = true,
                 folder_arrow = true
-           }
+            }
         }
     },
+    update_focused_file = {
+        enable = true,
+        update_root = false,
+    },
+    sync_root_with_cwd = true,
+    hijack_cursor = true,
 }
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    pattern = "*",
-    callback = function()
-        local args = vim.fn.argv()
-        if #args == 1 then
-            local path = args[1]
-            local is_dir = vim.fn.isdirectory(path) == 1
-            if is_dir then
-                -- Toggle nvim-tree if a directory is opened
-                require('nvim-tree').toggle()
-            end
-        end
-    end,
-})
-
--- vim.api.nvim_exec([[
---     autocmd VimEnter * NvimTreeOpen
--- ]], false)
-
 require("bufferline").setup {
-  options = {
-    diagnostics = "nvim_lsp",  -- Show LSP diagnostics in the tabline
-    separator_style = "slant",  -- Choose a tab separator style
-    show_buffer_close_icons = false,
-    show_close_icon = false,
-    enforce_regular_tabs = true,
-    always_show_bufferline = true, -- Only show tabs when more than one buffer is open
-    hover = {
-        enabled = true,
-        delay = 200,
-        reveal = {'close'}
+    options = {
+        diagnostics = "nvim_lsp",  -- Show LSP diagnostics in the tabline
+        separator_style = "slant",  -- Choose a tab separator style
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        enforce_regular_tabs = true,
+        always_show_bufferline = true, -- Only show tabs when more than one buffer is open
+        hover = {
+            enabled = true,
+            delay = 200,
+            reveal = {'close'}
+        }
     }
-  }
 }
 
 vim.api.nvim_set_hl(0, 'GitSignsAdd', { link = 'GitGutterAdd' })
@@ -171,50 +169,49 @@ require('gitsigns').setup {
 }
 
 require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+    options = {
+        icons_enabled = true,
+        theme = 'auto',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        always_show_tabline = true,
+        globalstatus = false,
+        refresh = {
+            statusline = 100,
+            tabline = 100,
+            winbar = 100,
+        }
     },
-    ignore_focus = {},
-    always_divide_middle = true,
-    always_show_tabline = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 100,
-      tabline = 100,
-      winbar = 100,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
 }
 
-
 require('better-comment').Setup({
-tags = {
+    tags = {
         {
             name = "TODO",
             fg = "white",
@@ -253,32 +250,45 @@ require("themery").setup({
             name = "Gruvbox Dark",
             colorscheme = "gruvbox-material",
             before = [[
-                vim.opt.background = "dark"
+            vim.opt.background = "dark"
             ]]
+        },
+        {
+            name = "Retro Box",
+            colorscheme = "retrobox",
         },
         {
             name = "Retro Theme",
             colorscheme = "retro-theme",
-            before = [[
-                require("retro-theme").setup {
-                    italic_comments = true,
-                }
-            ]],
-        },
-        {
-            name = "Catppuccin",
-            colorscheme = "catppuccin",
             after = [[
+                require("retro-theme").setup {
+                        italic_comments = true,
+                    }
+                ]],
+            },
+            {
+                name = "Catppuccin",
+                colorscheme = "catppuccin",
+                after = [[
                 vim.opt.background = "dark"
-            ]]
-        },
-        {
-            name = "Nord", colorscheme = "nord",
-        },
-        {
-            name = "Solarized Dark",
-            colorscheme = "NeoSolarized",
-            before = [[
+                ]]
+            },
+            {
+                name = "Nord", colorscheme = "nord",
+            },
+            {
+                name = "One dark", colorscheme = "onedark",
+                after = [[
+                require('onedark').setup {
+                    style = 'darker'
+                }
+                require('onedark').load()
+                ]],
+            },
+            {
+                name = "Solarized Dark",
+                colorscheme = "NeoSolarized",
+                before = [[
                 require("NeoSolarized").setup {
                     style = "dark", -- "dark" or "light"
                     transparent = false, -- true/false; Enable this to disable setting the background color
@@ -299,22 +309,22 @@ require("themery").setup({
                         -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
                     end, 
                 }
-            ]],
-            after = [[
+                ]],
+                after = [[
                 vim.opt.background = "dark"
-            ]]
-        },
-        {
-            name = "Gruvbox Light",
-            colorscheme = "gruvbox-material",
-            before = [[
+                ]]
+            },
+            {
+                name = "Gruvbox Light",
+                colorscheme = "gruvbox-material",
+                before = [[
                 vim.opt.background = "light"
-            ]]
-        },
-        {
-            name = "Solarized Light",
-            colorscheme = "NeoSolarized",
-            before = [[
+                ]]
+            },
+            {
+                name = "Solarized Light",
+                colorscheme = "NeoSolarized",
+                before = [[
                 require("NeoSolarized").setup {
                     style = "light", -- "dark" or "light"
                     transparent = false, -- true/false; Enable this to disable setting the background color
@@ -335,11 +345,11 @@ require("themery").setup({
                         -- highlights.Include.fg = colors.red -- Using `red` foreground for Includes
                     end, 
                 }
-            ]],
-            after = [[
+                ]],
+                after = [[
                 vim.opt.background="light"
-            ]]
-        },
-    }, -- Your list of installed colorschemes.
-    livePreview = true, -- Apply theme while picking. Default to true.
-})
+                ]]
+            },
+        }, -- Your list of installed colorschemes.
+        livePreview = true, -- Apply theme while picking. Default to true.
+    })

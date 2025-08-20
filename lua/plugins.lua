@@ -1,6 +1,7 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'williamboman/mason.nvim'
+
     use 'nvim-tree/nvim-web-devicons'
     use 'neovim/nvim-lspconfig'
     use 'nvim-tree/nvim-tree.lua'
@@ -15,7 +16,28 @@ return require('packer').startup(function(use)
     use {'mistricky/codesnap.nvim', run = 'make'} -- codesnap for taking pictures of code
     -- use "NormalNvim/NormalNvim"
     use 'bergercookie/asm-lsp'
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        event = { "BufReadPost", "BufNewFile" },
+        cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+        build = ":TSUpdate",
+        opts = function()
+            return {
+                -- auto_install = true,
+                -- ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
+
+                highlight = {
+                    enable = true,
+                    use_languagetree = true,
+                },
+
+                indent = { enable = true },
+            }
+        end,
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end,
+    }
     use 'RaafatTurki/hex.nvim'
     use 'alex-popov-tech/store.nvim'
     use 'rktjmp/fwatch.nvim'
@@ -63,7 +85,13 @@ return require('packer').startup(function(use)
         'hrsh7th/cmp-buffer', -- Buffer completions
         'hrsh7th/cmp-path', -- Path completions
         'hrsh7th/cmp-cmdline', -- Command line completions
-        'L3MON4D3/LuaSnip', -- Snippet engine
+        {
+            'L3MON4D3/LuaSnip', 
+            opts = { 
+                history = true, 
+                updateevents = "TextChanged,TextChangedI" 
+            },
+        }, -- Snippet engine
         'saadparwaiz1/cmp_luasnip',
     }
 
@@ -77,9 +105,14 @@ return require('packer').startup(function(use)
     use 'sainnhe/gruvbox-material'
     use 'Tsuzat/NeoSolarized.nvim'
     use 'folke/tokyonight.nvim'
-    use 'mistweaverco/retro-theme.nvim'
-
+    use { 'mistweaverco/retro-theme.nvim', opts = { italic_comments = true, disable_cache = true, } }
+    use 'navarasu/onedark.nvim'
 
 
     use "Stefan-Comandant/stefan-plugin"
+    use "norcalli/nvim-colorizer.lua"
+    use 'nvim-telescope/telescope-live-grep-args.nvim'
+    use 'sindrets/diffview.nvim'
+    use 'simonefranza/nvim-conv'
+    use 'CRAG666/betterTerm.nvim'
 end)

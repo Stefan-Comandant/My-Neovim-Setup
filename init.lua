@@ -5,12 +5,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 vim.cmd [[packadd packer.nvim]]
 
-require("hex").setup()
-require("store").setup()
-
 require("plugins")
+require("mycmp")
+require(".lsp.lsp-conf")
+require("myluasnip")
 require("settings")
 require("keymaps")
-require(".lsp.lsp-conf")
-require("mycmp")
 require("stefan-plugin")
+-- require("hex").setup()
+require("diffview").setup()
+-- require("store").setup()

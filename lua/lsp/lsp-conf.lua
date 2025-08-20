@@ -1,41 +1,129 @@
-local lspconfig = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local common = require(".lsp.common")
+local lspconfig = common.lspconfig
+local on_attach = common.on_attach
+local capabilities = common.capabilities
 
-
-local function on_attach(client,bufnr)
-    -- Define key mappings for LSP functions
-    local buf_map = function(keys, cmd)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', keys, cmd, { noremap = true, silent = true })
-    end
-
-    buf_map('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-    buf_map('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-    buf_map('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    buf_map('<C-k>', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-    buf_map('go', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    buf_map('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-    buf_map('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-    buf_map('gl', '<cmd>lua vim.lsp.diagnostic.open_float()<CR>')
-    buf_map('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-
-    require "lsp_signature".on_attach({
-        bind = true,
-        floating_window = true,
-        hint_enable = false,
-    }, bufnr)
-end
-
-require "lsp_signature".setup({
-    bind = true, -- This is mandatory, otherwise border config won't work
-    handler_opts = {
-        border = "rounded" -- Options include 'single', 'double', 'rounded', 'solid', 'shadow', 'none'
-    },
-    floating_window = true, -- Show signature help in a floating window
-    hint_enable = true, -- Virtual hint on the current line
+lspconfig.asm_lsp.setup({
+    cmd = { "asm-lsp" },
+    assembler = "nasm",
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "asm" }
 })
--- .lsp.lsp-conf
-require(".lsp.java")
-require(".lsp.lua")
-require(".lsp.clang")
-require(".lsp.asm")
-require(".lsp.emmet")
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--     callback = function(args)
+--         on_attach(_, args.buf)
+--     end,
+-- })
+
+lspconfig.clangd.setup({
+    cmd = {
+        "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed",
+    },
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
+
+lspconfig.emmet_language_server.setup({
+  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+  -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+  -- **Note:** only the options listed in the table are supported.
+  init_options = {
+    ---@type table<string, string>
+    includeLanguages = {},
+    --- @type string[]
+    excludeLanguages = {},
+    --- @type string[]
+    extensionsPath = {},
+    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+    preferences = {},
+    --- @type boolean Defaults to `true`
+    showAbbreviationSuggestions = true,
+    --- @type "always" | "never" Defaults to `"always"`
+    showExpandedAbbreviation = "always",
+    --- @type boolean Defaults to `false`
+    showSuggestionsAsSnippets = true,
+    --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+    syntaxProfiles = {},
+    --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+    variables = {},
+  },
+    on_attach = on_attach,
+    capabilities = capabilities
+})
+
+lspconfig.gopls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities
+})
+
+lspconfig.jdtls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities
+})
+
+lspconfig.ts_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities
+})
+
+-- vim.lsp.enable()
+-- vim.lsp.config("lua_ls", {
+--     settings = {
+--         -- lua LSP
+--         Lua = {
+--             runtime = {
+--                 version = 'LuaJIT',
+--                 path = vim.split(package.path, ';')
+--             },
+--             diagnostics = {
+--                 globals = {'vim'}
+--             },
+--             -- workspace = {
+--                 --     library = vim.api.nvim_get_runtime_file("", true),
+--                 --     checkThirdParty = false
+--                 -- },
+--                 telemetry = {
+--                     enable = false
+--                 }
+--             }
+--         },
+--         capabilities = capabilities,
+--         on_attach = on_attach,
+--         on_init = function (client, _)
+--             if client.supports_method "textDocument/semanticTokens" then
+--                 client.server_capabilities.semanticTokensProvider = nil
+--             end
+--         end
+-- })
+-- vim.lsp.enable("lua_ls")
+
+lspconfig.lua_ls.setup {
+    settings = {
+        -- lua LSP
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+                path = vim.split(package.path, ';')
+            },
+            diagnostics = {
+                globals = {'vim'}
+            },
+            -- workspace = {
+            --     library = vim.api.nvim_get_runtime_file("", true),
+            --     checkThirdParty = false
+            -- },
+            telemetry = {
+                enable = false
+            }
+        }
+    },
+    capabilities = capabilities,
+    on_attach = on_attach,
+    on_init = function (client, _)
+        if client.supports_method "textDocument/semanticTokens" then
+            client.server_capabilities.semanticTokensProvider = nil
+        end
+    end
+}
