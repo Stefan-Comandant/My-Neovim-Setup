@@ -1,10 +1,13 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local lspconfig = require("lspconfig")
 -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local opts = { noremap = true, silent = true }
 
 local function on_attach(_,_)
+    -- require("myluasnip")
     -- Define key mappings for LSP functions
     -- local buf_map = function(keys, cmd)
     --     vim.api.nvim_buf_set_keymap(bufnr, 'n', keys, cmd, { noremap = true, silent = true })

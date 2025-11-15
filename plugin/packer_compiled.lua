@@ -204,6 +204,11 @@ _G.packer_plugins = {
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   nvim = {
     loaded = true,
     path = "/home/stefan/.local/share/nvim/site/pack/packer/start/nvim",

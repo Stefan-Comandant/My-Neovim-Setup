@@ -8,7 +8,6 @@ vim.cmd [[packadd packer.nvim]]
 require("plugins")
 require("mycmp")
 require(".lsp.lsp-conf")
-require("myluasnip")
 require("settings")
 require("keymaps")
 require("stefan-plugin")

@@ -127,3 +127,5 @@ lspconfig.lua_ls.setup {
         end
     end
 }
+
+lspconfig.pyright.setup{}

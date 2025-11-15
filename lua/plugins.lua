@@ -115,4 +115,5 @@ return require('packer').startup(function(use)
     use 'sindrets/diffview.nvim'
     use 'simonefranza/nvim-conv'
     use 'CRAG666/betterTerm.nvim'
+    use 'MunifTanjim/nui.nvim'
 end)
